@@ -51,8 +51,8 @@ export default function Home() {
       <div className="academic-layout">
         <aside className="sidebar">
           <nav className="site-nav" aria-label="Primary navigation">
-            <a href="#research">Research Interests</a>
             <a href="#education">Education</a>
+            <a href="#research">Research Interests</a>
             <a href="#publications">Publications</a>
             <a href="#experience">Internship</a>
             <a href="#teaching">Teaching</a>
@@ -69,15 +69,6 @@ export default function Home() {
         </aside>
 
         <div className="content">
-          <section id="research">
-            <h2>Research Interests</h2>
-            <ul className="interest-list">
-              <li>Graph and network alignment</li>
-              <li>Brain connectivity registration</li>
-              <li>Machine learning</li>
-            </ul>
-          </section>
-
           <section id="education">
             <h2>Education</h2>
             <div className="entry">
@@ -94,6 +85,15 @@ export default function Home() {
               </div>
               <p className="date">2019–2023</p>
             </div>
+          </section>
+
+          <section id="research">
+            <h2>Research Interests</h2>
+            <ul className="interest-list">
+              <li>Graph and network alignment</li>
+              <li>Brain connectivity registration</li>
+              <li>Machine learning</li>
+            </ul>
           </section>
 
           <section id="publications">

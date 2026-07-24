@@ -17,6 +17,14 @@ test("statically renders Yang Xiang's portfolio", async () => {
   assert.match(html, /graph and network alignment/i);
   assert.match(html, /brain connectivity registration/i);
   assert.doesNotMatch(html, /react-loading-skeleton|codex-preview|_sites-preview/);
+  assert.ok(
+    html.indexOf('href="#education"') < html.indexOf('href="#research"'),
+    "Education should appear before Research Interests in navigation",
+  );
+  assert.ok(
+    html.indexOf('id="education"') < html.indexOf('id="research"'),
+    "Education should appear before Research Interests in page content",
+  );
 });
 
 test("links exactly four concise publication entries to arXiv", async () => {
