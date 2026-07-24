@@ -1,0 +1,359 @@
+@import "tailwindcss";
+
+:root {
+  --text: #222;
+  --muted: #5d6470;
+  --link: #176b9b;
+  --rule: #d8dde2;
+  --accent: #4b9cd3;
+  --surface: #f5f7f8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--surface);
+  color: var(--text);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 17px;
+  line-height: 1.58;
+}
+
+a {
+  color: var(--link);
+  text-decoration: none;
+}
+
+a:hover,
+a:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.page {
+  width: min(1040px, calc(100% - 48px));
+  margin: 30px auto;
+  padding: 50px 56px 32px;
+  border-top: 6px solid var(--accent);
+  background: #fff;
+  box-shadow: 0 1px 8px rgba(24, 42, 56, 0.08);
+}
+
+.profile-header {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 32px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid var(--rule);
+}
+
+.profile-header h1 {
+  margin: 0 0 8px;
+  color: #111;
+  font-size: clamp(2.35rem, 6vw, 3.15rem);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+.profile-header p {
+  margin: 2px 0;
+}
+
+.profile-header .position {
+  font-weight: 700;
+}
+
+.profile-header address {
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-style: normal;
+  line-height: 1.65;
+  text-align: right;
+}
+
+.academic-layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: 46px;
+  padding-top: 38px;
+}
+
+.sidebar {
+  padding-right: 30px;
+  border-right: 1px solid var(--rule);
+}
+
+.site-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 11px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.87rem;
+}
+
+.site-nav a {
+  color: #323b44;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  color: var(--link);
+}
+
+.sidebar-note {
+  margin-top: 36px;
+  padding-top: 20px;
+  border-top: 1px solid var(--rule);
+}
+
+.sidebar-note h2 {
+  margin: 0 0 8px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.sidebar-note p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+  line-height: 1.55;
+}
+
+.content {
+  min-width: 0;
+}
+
+section {
+  padding: 0 0 38px;
+  scroll-margin-top: 20px;
+}
+
+section + section {
+  padding-top: 36px;
+  border-top: 1px solid var(--rule);
+}
+
+section:last-child {
+  padding-bottom: 0;
+}
+
+section > h2 {
+  margin: 0 0 22px;
+  color: #1f2b34;
+  font-size: 1.38rem;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+section > h2::after {
+  display: block;
+  width: 42px;
+  height: 2px;
+  margin-top: 7px;
+  background: var(--accent);
+  content: "";
+}
+
+.interest-list {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px 22px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.interest-list li {
+  position: relative;
+  padding-left: 15px;
+}
+
+.interest-list li::before {
+  position: absolute;
+  top: 0.73em;
+  left: 0;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent);
+  content: "";
+}
+
+.entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 28px;
+  padding-bottom: 20px;
+}
+
+.entry:last-of-type {
+  padding-bottom: 0;
+}
+
+.entry h3 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.entry p {
+  margin: 2px 0 0;
+}
+
+.entry .date {
+  color: var(--muted);
+  font-size: 0.9rem;
+  white-space: nowrap;
+}
+
+.publication-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: publication;
+}
+
+.publication-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 22px;
+  padding: 13px 0 13px 34px;
+  border-bottom: 1px solid #e9ecef;
+  counter-increment: publication;
+  position: relative;
+}
+
+.publication-list li:first-child {
+  padding-top: 0;
+}
+
+.publication-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.publication-list li::before {
+  position: absolute;
+  left: 0;
+  color: var(--muted);
+  content: counter(publication) ".";
+}
+
+.publication-title {
+  font-style: italic;
+}
+
+.publication-year {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.course-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.course-list span {
+  padding: 4px 10px;
+  border: 1px solid var(--rule);
+  background: #fafbfc;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.78rem;
+}
+
+footer {
+  margin-top: 44px;
+  padding-top: 18px;
+  border-top: 1px solid var(--rule);
+  color: var(--muted);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 0.76rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+}
+
+@media (max-width: 760px) {
+  body {
+    background: #fff;
+    font-size: 16px;
+  }
+
+  .page {
+    width: 100%;
+    margin: 0;
+    padding: 36px 24px 28px;
+    border-top-width: 5px;
+    box-shadow: none;
+  }
+
+  .profile-header {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+
+  .profile-header address {
+    text-align: left;
+  }
+
+  .academic-layout {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .sidebar {
+    padding: 0 0 24px;
+    border-right: 0;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .site-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 9px 18px;
+  }
+
+  .sidebar-note {
+    display: none;
+  }
+
+  .interest-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 500px) {
+  .entry,
+  .publication-list li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+
+  .entry .date,
+  .publication-year {
+    margin-top: 3px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
