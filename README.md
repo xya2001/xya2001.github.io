@@ -3,6 +3,10 @@
 A concise academic portfolio featuring education, internship experience,
 arXiv publications, and teaching.
 
+## Website
+
+Published at [xya2001.github.io](https://xya2001.github.io).
+
 ## Local development
 
 ```bash
@@ -17,3 +21,6 @@ Open `http://localhost:3000`.
 ```bash
 npm test
 ```
+
+Pushing to `main` automatically rebuilds and publishes the site with GitHub
+Pages.
